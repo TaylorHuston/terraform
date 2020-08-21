@@ -30,3 +30,5 @@ override.tf.json
 # example: *tfplan*
 
 GCP/Test Project-4b01dd247eb4.json
+*.json
+
