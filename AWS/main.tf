@@ -38,3 +38,8 @@ resource "aws_route" "default-route" {
   gateway_id             = aws_internet_gateway.my_internet_gateway.id
 
 }
+
+resource "aws_route_table_association" "my-public-rt-assoc" {
+  subnet_id      = aws_subnet.my_public_subnet.id
+  route_table_id = aws_route_table.my-public-rt.id
+}
