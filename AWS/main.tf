@@ -43,3 +43,25 @@ resource "aws_route_table_association" "my-public-rt-assoc" {
   subnet_id      = aws_subnet.my_public_subnet.id
   route_table_id = aws_route_table.my-public-rt.id
 }
+
+resource "aws_security_group" "my_sg" {
+  name        = "allow_me"
+  description = "Allow inbound traffic from my IP"
+  vpc_id      = aws_vpc.my_vpc.id
+
+  ingress {
+    description = "All from my IP"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["68.162.150.26/32"]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+
