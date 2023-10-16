@@ -25,7 +25,7 @@ resource "aws_internet_gateway" "my_internet_gateway" {
 }
 
 resource "aws_route_table" "my-public-rt" {
-  vpc_id = aws_vpc.my_vpc
+  vpc_id = aws_vpc.my_vpc.id
 
   tags = {
     Name = "dev_public_rt"
