@@ -1,7 +1,7 @@
 terraform {
 
   backend "s3" {
-    bucket         = "example-tf-web-app"
+    bucket         = "example-tf-state-bucket"
     key            = "terraform.tfstate"
     region         = "us-east-1"
     dynamodb_table = "terraform-state-locking"
@@ -20,7 +20,7 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "terraform_state" {
-  bucket        = "example-tf-web-app" 
+  bucket        = "example-tf-state-bucket" 
   force_destroy = true
 }
 
